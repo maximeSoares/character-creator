@@ -1,0 +1,25 @@
+
+{
+    "characterCreatorApp": {
+        "experiencePoint" : {
+            "home": {
+                "title": "ExperiencePoints",
+                "createLabel": "Créer un nouveau Experience Point",
+                "createOrEditLabel": "Créer ou éditer un Experience Point"
+            },
+            "created": "Un nouveau Experience Point a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Experience Point avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Experience Point avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Experience Point {{ id }} ?"
+            },
+            "detail": {
+                "title": "Experience Point"
+            },
+            "acquisitionDate": "Acquisition Date",
+            "description": "Description",
+            "startingExperiencePoint": "Starting Experience Point",
+            "character": "Character"
+        }
+    }
+}

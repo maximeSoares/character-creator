@@ -1,0 +1,40 @@
+
+entity Character {
+	name String required
+}
+
+entity CharacterRace {
+	name String required
+    description String required
+}
+
+entity CharacterClass {
+	name String required
+    description String required
+}
+
+entity ExperiencePoint {
+	acquisitionDate Instant required
+	description String
+    startingExperiencePoint Boolean required
+}
+
+entity Skill {
+	title String required,
+	descriptionShort String,
+	descriptionLong String
+}
+
+relationship ManyToOne {
+	Character{user} to User{character}
+    ExperiencePoint{character} to Character{experiencePoint}
+}
+relationship ManyToMany {
+	Character{skill} to Skill{character}
+	CharacterClass{skill} to Skill{characterClass}
+	CharacterRace{skill} to Skill{characterRace}
+}
+paginate all with infinite-scroll
+
+service all with serviceImpl
+

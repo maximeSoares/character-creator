@@ -1,0 +1,24 @@
+
+{
+    "characterCreatorApp": {
+        "characterRace" : {
+            "home": {
+                "title": "CharacterRaces",
+                "createLabel": "Créer un nouveau Character Race",
+                "createOrEditLabel": "Créer ou éditer un Character Race"
+            },
+            "created": "Un nouveau Character Race a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Character Race avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Character Race avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Character Race {{ id }} ?"
+            },
+            "detail": {
+                "title": "Character Race"
+            },
+            "name": "Name",
+            "description": "Description",
+            "skill": "Skill"
+        }
+    }
+}

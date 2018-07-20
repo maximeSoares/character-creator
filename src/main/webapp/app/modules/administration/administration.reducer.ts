@@ -3,7 +3,6 @@ import axios from 'axios';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 
 export const ACTION_TYPES = {
-  FETCH_GATEWAY_ROUTE: 'administration/FETCH_GATEWAY_ROUTE',
   FETCH_LOGS: 'administration/FETCH_LOGS',
   FETCH_LOGS_CHANGE_LEVEL: 'administration/FETCH_LOGS_CHANGE_LEVEL',
   FETCH_HEALTH: 'administration/FETCH_HEALTH',
@@ -18,14 +17,11 @@ export const ACTION_TYPES = {
 const initialState = {
   loading: false,
   errorMessage: null,
-  gateway: {
-    routes: []
-  },
   logs: {
     loggers: [] as any[]
   },
   health: {} as any,
-  metrics: {},
+  metrics: {} as any,
   threadDump: [],
   configuration: {
     configProps: {} as any,
@@ -44,19 +40,8 @@ export type AdministrationState = Readonly<typeof initialState>;
 
 export default (state: AdministrationState = initialState, action): AdministrationState => {
   switch (action.type) {
-    case REQUEST(ACTION_TYPES.FETCH_GATEWAY_ROUTE):
     case REQUEST(ACTION_TYPES.FETCH_METRICS):
-      return {
-        ...state,
-        errorMessage: null,
-        loading: true
-      };
     case REQUEST(ACTION_TYPES.FETCH_THREAD_DUMP):
-      return {
-        ...state,
-        errorMessage: null,
-        loading: true
-      };
     case REQUEST(ACTION_TYPES.FETCH_LOGS):
     case REQUEST(ACTION_TYPES.FETCH_CONFIGURATIONS):
     case REQUEST(ACTION_TYPES.FETCH_ENV):
@@ -67,7 +52,6 @@ export default (state: AdministrationState = initialState, action): Administrati
         errorMessage: null,
         loading: true
       };
-    case FAILURE(ACTION_TYPES.FETCH_GATEWAY_ROUTE):
     case FAILURE(ACTION_TYPES.FETCH_METRICS):
     case FAILURE(ACTION_TYPES.FETCH_THREAD_DUMP):
     case FAILURE(ACTION_TYPES.FETCH_LOGS):
@@ -79,14 +63,6 @@ export default (state: AdministrationState = initialState, action): Administrati
         ...state,
         loading: false,
         errorMessage: action.payload
-      };
-    case SUCCESS(ACTION_TYPES.FETCH_GATEWAY_ROUTE):
-      return {
-        ...state,
-        loading: false,
-        gateway: {
-          routes: action.payload.data
-        }
       };
     case SUCCESS(ACTION_TYPES.FETCH_METRICS):
       return {
@@ -154,29 +130,25 @@ export default (state: AdministrationState = initialState, action): Administrati
 };
 
 // Actions
-export const gatewayRoutes = () => ({
-  type: ACTION_TYPES.FETCH_GATEWAY_ROUTE,
-  payload: axios.get('/api/gateway/routes')
-});
 
 export const systemHealth = () => ({
   type: ACTION_TYPES.FETCH_HEALTH,
-  payload: axios.get('/management/health')
+  payload: axios.get('management/health')
 });
 
 export const systemMetrics = () => ({
   type: ACTION_TYPES.FETCH_METRICS,
-  payload: axios.get('/management/metrics')
+  payload: axios.get('management/metrics')
 });
 
 export const systemThreadDump = () => ({
   type: ACTION_TYPES.FETCH_THREAD_DUMP,
-  payload: axios.get('/management/threaddump')
+  payload: axios.get('management/threaddump')
 });
 
 export const getLoggers = () => ({
   type: ACTION_TYPES.FETCH_LOGS,
-  payload: axios.get('/management/logs')
+  payload: axios.get('management/logs')
 });
 
 export const changeLogLevel = (name, level) => {
@@ -187,7 +159,7 @@ export const changeLogLevel = (name, level) => {
   return async dispatch => {
     await dispatch({
       type: ACTION_TYPES.FETCH_LOGS_CHANGE_LEVEL,
-      payload: axios.put('/management/logs', body)
+      payload: axios.put('management/logs', body)
     });
     dispatch(getLoggers());
   };
@@ -195,16 +167,16 @@ export const changeLogLevel = (name, level) => {
 
 export const getConfigurations = () => ({
   type: ACTION_TYPES.FETCH_CONFIGURATIONS,
-  payload: axios.get('/management/configprops')
+  payload: axios.get('management/configprops')
 });
 
 export const getEnv = () => ({
   type: ACTION_TYPES.FETCH_ENV,
-  payload: axios.get('/management/env')
+  payload: axios.get('management/env')
 });
 
 export const getAudits = (page, size, sort, fromDate, toDate) => {
-  let requestUrl = `/management/audits${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  let requestUrl = `management/audits${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
   if (fromDate) {
     requestUrl += `&fromDate=${fromDate}`;
   }

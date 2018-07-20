@@ -1,0 +1,24 @@
+
+{
+    "characterCreatorApp": {
+        "characterClass" : {
+            "home": {
+                "title": "CharacterClasses",
+                "createLabel": "Créer un nouveau Character Class",
+                "createOrEditLabel": "Créer ou éditer un Character Class"
+            },
+            "created": "Un nouveau Character Class a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Character Class avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Character Class avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Character Class {{ id }} ?"
+            },
+            "detail": {
+                "title": "Character Class"
+            },
+            "name": "Name",
+            "description": "Description",
+            "skill": "Skill"
+        }
+    }
+}

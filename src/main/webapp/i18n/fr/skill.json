@@ -1,0 +1,27 @@
+
+{
+    "characterCreatorApp": {
+        "skill" : {
+            "home": {
+                "title": "Skills",
+                "createLabel": "Créer un nouveau Skill",
+                "createOrEditLabel": "Créer ou éditer un Skill"
+            },
+            "created": "Un nouveau Skill a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Skill avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Skill avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Skill {{ id }} ?"
+            },
+            "detail": {
+                "title": "Skill"
+            },
+            "title": "Title",
+            "descriptionShort": "Description Short",
+            "descriptionLong": "Description Long",
+            "character": "Character",
+            "characterClass": "Character Class",
+            "characterRace": "Character Race"
+        }
+    }
+}

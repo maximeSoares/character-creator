@@ -1,0 +1,52 @@
+{
+    "name": "Skill",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descriptionShort",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionLong",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "character",
+            "otherEntityName": "character",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "skill"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "characterClass",
+            "otherEntityName": "characterClass",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "skill"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "characterRace",
+            "otherEntityName": "characterRace",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "skill"
+        }
+    ],
+    "changelogDate": "20180720194530",
+    "entityTableName": "skill",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

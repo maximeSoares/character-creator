@@ -1,0 +1,40 @@
+{
+    "name": "ExperiencePoint",
+    "fields": [
+        {
+            "fieldName": "acquisitionDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startingExperiencePoint",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "character",
+            "otherEntityName": "character",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180720194529",
+    "entityTableName": "experience_point",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

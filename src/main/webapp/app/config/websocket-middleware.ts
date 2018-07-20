@@ -1,6 +1,6 @@
-import * as SockJS from 'sockjs-client';
+import SockJS from 'sockjs-client';
 
-import * as Stomp from 'webstomp-client';
+import Stomp from 'webstomp-client';
 import { Observable } from 'rxjs'; // tslint:disable-line
 import { Observer } from 'rxjs/Observer'; // tslint:disable-line
 import { Storage } from 'react-jhipster';
@@ -63,18 +63,21 @@ const connect = () => {
   const socket = new SockJS(url);
   stompClient = Stomp.over(socket);
 
-  stompClient.connect(headers, () => {
-    connectedPromise('success');
-    connectedPromise = null;
-    subscribe();
-    sendActivity();
-    if (!alreadyConnectedOnce) {
-      window.onhashchange = () => {
-        sendActivity();
-      };
-      alreadyConnectedOnce = true;
+  stompClient.connect(
+    headers,
+    () => {
+      connectedPromise('success');
+      connectedPromise = null;
+      subscribe();
+      sendActivity();
+      if (!alreadyConnectedOnce) {
+        window.onhashchange = () => {
+          sendActivity();
+        };
+        alreadyConnectedOnce = true;
+      }
     }
-  });
+  );
 };
 
 const disconnect = () => {

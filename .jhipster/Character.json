@@ -1,0 +1,43 @@
+{
+    "name": "Character",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "character",
+            "relationshipName": "skill",
+            "otherEntityName": "skill",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "experiencePoint",
+            "otherEntityName": "experiencePoint",
+            "otherEntityRelationshipName": "character"
+        }
+    ],
+    "changelogDate": "20180720194526",
+    "entityTableName": "character",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

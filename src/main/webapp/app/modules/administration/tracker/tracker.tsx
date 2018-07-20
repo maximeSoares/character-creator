@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 
